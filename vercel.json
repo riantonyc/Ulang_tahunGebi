@@ -1,0 +1,6 @@
+{
+  "buildCommand": "node builder/init.js --local && npx parcel build src/index.html",
+  "outputDirectory": "dist",
+  "installCommand": "npm install",
+  "framework": null
+}
