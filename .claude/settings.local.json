@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp -r d:/Project/HeFun/Birtday/repo/src/js/. d:/Project/HeFun/Birtday/src/js/)",
+      "Bash(cp -r d:/Project/HeFun/Birtday/repo/src/scss/. d:/Project/HeFun/Birtday/src/scss/)",
+      "Bash(cp -r d:/Project/HeFun/Birtday/repo/src/resources/. d:/Project/HeFun/Birtday/src/resources/)"
+    ]
+  }
+}
