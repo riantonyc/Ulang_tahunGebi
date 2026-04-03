@@ -61,6 +61,70 @@ const showTraktirModal = () => {
   const modal = document.getElementById("modalTraktir");
   if (modal) {
     modal.classList.add("active");
+    // Add click handler for gass button
+    const gassBtn = document.getElementById("modalGass");
+    if (gassBtn) {
+      gassBtn.addEventListener("click", () => {
+        modal.classList.remove("active");
+        showSuccessOverlay();
+      });
+    }
+  }
+};
+
+// Show Success Overlay
+
+const showSuccessOverlay = () => {
+  const successOverlay = document.getElementById("successOverlay");
+  if (successOverlay) {
+    successOverlay.classList.add("active");
+    // Add confetti
+    createConfetti();
+  }
+};
+
+// Create confetti particles
+
+const createConfetti = () => {
+  const container = document.getElementById("confettiContainer");
+  if (!container) return;
+
+  const colors = ["#ff6b9d", "#c44dff", "#ffd700", "#00ff88", "#ff4444", "#44aaff"];
+
+  for (let i = 0; i < 100; i++) {
+    const confetti = document.createElement("div");
+    confetti.className = "confetti-piece";
+    confetti.style.cssText = `
+      position: absolute;
+      width: ${Math.random() * 10 + 5}px;
+      height: ${Math.random() * 10 + 5}px;
+      background: ${colors[Math.floor(Math.random() * colors.length)]};
+      left: ${Math.random() * 100}%;
+      top: -20px;
+      animation: confetti-fall ${Math.random() * 3 + 2}s linear forwards;
+      animation-delay: ${Math.random() * 2}s;
+      border-radius: ${Math.random() > 0.5 ? "50%" : "0"};
+    `;
+    container.appendChild(confetti);
+  }
+
+  // Add confetti animation if not exists
+  if (!document.getElementById("confetti-style")) {
+    const style = document.createElement("style");
+    style.id = "confetti-style";
+    style.textContent = `
+      @keyframes confetti-fall {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(100vh) rotate(720deg);
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(style);
   }
 };
 
