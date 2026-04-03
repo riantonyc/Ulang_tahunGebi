@@ -140,7 +140,8 @@ export const animate = function () {
       music.loop = true;
       music.play();
 
-      if (!process.env.SCROLL_MSG) {
+      // Check if scroll message exists in DOM
+      if (!msg || msg.innerHTML.trim() === "") {
         frames[0].style.display = "flex";
         setTimeout(() => {
           frames[0].classList.add("appear");
